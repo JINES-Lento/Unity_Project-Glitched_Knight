@@ -1,7 +1,7 @@
 //WASD키를 이용한 캐릭처의 움직임, 카메라 이동 변환 스크립트
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+public class characterMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;        // 캐릭터 이동 속도
     public Transform cameraTransform;   // 메인 카메라
