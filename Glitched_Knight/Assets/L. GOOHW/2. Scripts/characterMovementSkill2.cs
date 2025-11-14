@@ -73,14 +73,14 @@ public class CharacterMovementSkill2 : MonoBehaviour
             StartCoroutine(coolTime(1f));
         }
 
-        Debug.DrawRay(transform.position +  moveDir * 1.1f, moveDir * 0.5f, Color.blue, 0.3f);
+        Debug.DrawRay(transform.position +  moveDir * 2f + Vector3.down * 1f, Vector3.up * 1f, Color.blue, 0.3f);
     }
     bool checkTrigger()
     { //스킬 발동 조건 확인
         RaycastHit hit;
         RaycastHit hit2;
 
-        if (!Physics.Raycast(transform.position + moveDir * 1.1f, moveDir, out hit2, 0.5f) ||
+        if (!Physics.Raycast(transform.position + moveDir * 2f + Vector3.down * 1f, Vector3.up, out hit2, 2f) ||
         (!hit2.collider.CompareTag("passWall") && !hit2.collider.CompareTag("realWall")))
         {
             if (Physics.Raycast(transform.position, moveDir, out hit, 2f))

@@ -1427,8 +1427,6 @@ GameObject:
   - component: {fileID: 562618785}
   - component: {fileID: 562618784}
   - component: {fileID: 562618787}
-  - component: {fileID: 562618788}
-  - component: {fileID: 562618789}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1501,40 +1499,6 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &562618787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562618782}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e905beaa04dd334cab33810f62a0cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  cameraTransform: {fileID: 955379241}
-  cameraOffset: {x: 0, y: 5, z: -5}
-  abyss: 0
-  isCooldown: 0
---- !u!114 &562618788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562618782}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f108a702588b384086c47ad34a5303c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  cameraTransform: {fileID: 955379241}
-  cameraOffset: {x: 0, y: 5, z: -5}
-  abyss: 0
-  isCooldown: 0
---- !u!114 &562618789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
