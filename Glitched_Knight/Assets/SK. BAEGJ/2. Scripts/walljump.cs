@@ -8,10 +8,6 @@ public class walljump : MonoBehaviour
     public bool isCooldown = false;
     Vector3 moveDir = Vector3.forward;
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,7 +29,7 @@ public class walljump : MonoBehaviour
 
         if (Physics.Raycast(transform.position, moveDir, out hit, 2f))
         {
-            if (hit.collider.CompareTag("Finish") && !isCooldown)
+            if (hit.collider.CompareTag("passWall") && !isCooldown)
             {
                 Debug.Log("스킬발동");
                 transform.position = hit.point + moveDir * 2f; //스킬시전
