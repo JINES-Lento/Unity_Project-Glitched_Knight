@@ -8,6 +8,12 @@ public class MobFollow_withRaycast : MonoBehaviour
     public float moveSpeed = 5f;        // 이동 속도
     public float rotationSpeed = 8f;    // 회전 속도
     public float obstacleCheckDistance = 3f; // 장애물 감지 거리
+    Collider col;
+
+    void Start()
+    {
+        col = GetComponent<Collider>();
+    }
 
     void Update()
     {
@@ -21,14 +27,18 @@ public class MobFollow_withRaycast : MonoBehaviour
         // 플레이어 방향 계산
         Vector3 targetDir = (player.position - transform.position).normalized;
         targetDir.y = 0;
+        Vector3 rayOrigin = col.bounds.center;
 
         // 레이캐스트로 장애물 감지
-        if (Physics.Raycast(transform.position + Vector3.up * 1f, transform.forward, out RaycastHit hit, obstacleCheckDistance))
+        //if (Physics.Raycast(transform.position + Vector3.up * 1f, transform.forward, out RaycastHit hit, obstacleCheckDistance))
+        if (Physics.Raycast(rayOrigin, transform.forward, out RaycastHit hit, obstacleCheckDistance))
         {
             // 장애물 회피
             // 오른쪽으로 회피 시도
             Vector3 rightDir = transform.right;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(rightDir), rotationSpeed * Time.deltaTime);
+
+            Debug.DrawRay(rayOrigin, transform.forward * obstacleCheckDistance, Color.red);
         }
         else
         {
@@ -44,7 +54,13 @@ public class MobFollow_withRaycast : MonoBehaviour
     // Scene 뷰에서 시각화
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position + Vector3.up, transform.forward * obstacleCheckDistance);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawRay(transform.position + Vector3.up, transform.forward * obstacleCheckDistance);
+        if (GetComponent<Collider>())
+        {
+            Vector3 rayOrigin = GetComponent<Collider>().bounds.center;
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(rayOrigin, 0.1f);
+        }
     }
 }
