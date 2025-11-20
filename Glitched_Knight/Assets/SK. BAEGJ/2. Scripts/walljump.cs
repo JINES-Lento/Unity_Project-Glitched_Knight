@@ -9,7 +9,7 @@ public class walljump : MonoBehaviour
     public float coolTimer = 3f;
 
     public float maxMP;
-    public float currentMP; //ÀÛµ¿ Å×½ºÆ®¿ë ÇöÀç MP
+    public float currentMP; //ìž‘ë™ í…ŒìŠ¤íŠ¸ìš© í˜„ìž¬ MP
     public Slider MP;
 
     public CooldownUI pwsk;
@@ -18,7 +18,7 @@ public class walljump : MonoBehaviour
 
     void Start()
     {
-        // UI ÃÊ±âÈ­
+        // UI ì´ˆê¸°í™”
         if (pwsk != null)
         {
             pwsk.SetMaxCooldown(coolTimer);
@@ -34,7 +34,7 @@ public class walljump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W)) moveDir = Vector3.forward;
         if (Input.GetKeyDown(KeyCode.A)) moveDir = Vector3.left;
         if (Input.GetKeyDown(KeyCode.S)) moveDir = Vector3.back;
-        if (Input.GetKeyDown(KeyCode.D)) moveDir = Vector3.right; // ¹æÇâ ÀúÀå
+        if (Input.GetKeyDown(KeyCode.D)) moveDir = Vector3.right; // ë°©í–¥ ì €ìž¥
 
         MP.value = currentMP;
 
@@ -48,23 +48,23 @@ public class walljump : MonoBehaviour
                 RaycastHit hit2;
                 if (!Physics.Raycast(transform.position + moveDir * 2f + Vector3.down * 1f, Vector3.up, out hit2, 2f) || (!hit2.collider.CompareTag("passWall") && !hit2.collider.CompareTag("realWall")))
                 {
-                    if (Physics.Raycast(transform.position, moveDir, out hit, 2f)) //½ºÅ³ ¹ßµ¿ Á¶°Ç È®ÀÎ
+                    if (Physics.Raycast(transform.position, moveDir, out hit, 2f)) //ìŠ¤í‚¬ ë°œë™ ì¡°ê±´ í™•ì¸
                     {
                         if (hit.collider.CompareTag("passWall"))
                         {
-                            Debug.Log("½ºÅ³¹ßµ¿");
-                            transform.position = hit.point + moveDir * 2f; //½ºÅ³½ÃÀü
+                            Debug.Log("ìŠ¤í‚¬ë°œë™");
+                            transform.position = hit.point + moveDir * 2f; //ìŠ¤í‚¬ì‹œì „
                             currentMP += 3; 
                         }
                     }
                 }
-                Debug.Log("Æ®¸®°Å ¾øÀ½");
+                Debug.Log("íŠ¸ë¦¬ê±° ì—†ìŒ");
             }
         }
     }
 
     IEnumerator coolTime(float cool)
-    { //ÄðÅ¸ÀÓ
+    { //ì¿¨íƒ€ìž„
         isCooldown = true;
 
         while (cool > 0.0f)
