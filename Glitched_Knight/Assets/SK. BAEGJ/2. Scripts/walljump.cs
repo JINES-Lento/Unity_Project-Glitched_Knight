@@ -1,57 +1,79 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class walljump : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public float abyss = 0;
     public bool isCooldown = false;
+    public float coolTimer = 3f;
+
+    public float maxMP;
+    public float currentMP; //ìž‘ë™ í…ŒìŠ¤íŠ¸ìš© í˜„ìž¬ MP
+    public Slider MP;
+
+    public CooldownUI pwsk;
+
     Vector3 moveDir = Vector3.forward;
 
     void Start()
     {
-        
+        // UI ì´ˆê¸°í™”
+        if (pwsk != null)
+        {
+            pwsk.SetMaxCooldown(coolTimer);
+            pwsk.SetCurrentCooldown(coolTimer);
+        }
+        currentMP = 0;
+        MP.maxValue = maxMP;
+        MP.value = currentMP;
     }
-
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W)) moveDir = Vector3.forward;
         if (Input.GetKeyDown(KeyCode.A)) moveDir = Vector3.left;
         if (Input.GetKeyDown(KeyCode.S)) moveDir = Vector3.back;
-        if (Input.GetKeyDown(KeyCode.D)) moveDir = Vector3.right; // ¹æÇâ ÀúÀå
+        if (Input.GetKeyDown(KeyCode.D)) moveDir = Vector3.right; // ë°©í–¥ ì €ìž¥
+
+        MP.value = currentMP;
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            checkTrigger();
-            StartCoroutine(coolTime(1f));
-        }
-    }
-    bool checkTrigger()
-    { //½ºÅ³ ¹ßµ¿ Á¶°Ç È®ÀÎ
-        RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, moveDir, out hit, 2f))
-        {
-            if (hit.collider.CompareTag("Finish") && !isCooldown)
+            if (!isCooldown)
             {
-                Debug.Log("½ºÅ³¹ßµ¿");
-                transform.position = hit.point + moveDir * 2f; //½ºÅ³½ÃÀü
-                abyss += 3;
-                return true;
+            StartCoroutine(coolTime(coolTimer));
+                RaycastHit hit;
+                RaycastHit hit2;
+                if (!Physics.Raycast(transform.position + moveDir * 2f + Vector3.down * 1f, Vector3.up, out hit2, 2f) || (!hit2.collider.CompareTag("passWall") && !hit2.collider.CompareTag("realWall")))
+                {
+                    if (Physics.Raycast(transform.position, moveDir, out hit, 2f)) //ìŠ¤í‚¬ ë°œë™ ì¡°ê±´ í™•ì¸
+                    {
+                        if (hit.collider.CompareTag("passWall"))
+                        {
+                            Debug.Log("ìŠ¤í‚¬ë°œë™");
+                            transform.position = hit.point + moveDir * 2f; //ìŠ¤í‚¬ì‹œì „
+                            currentMP += 3; 
+                        }
+                    }
+                }
+                Debug.Log("íŠ¸ë¦¬ê±° ì—†ìŒ");
             }
         }
-        Debug.Log("Æ®¸®°Å ¾øÀ½");
-        return false;
     }
 
     IEnumerator coolTime(float cool)
-    { //ÄðÅ¸ÀÓ
+    { //ì¿¨íƒ€ìž„
         isCooldown = true;
+
         while (cool > 0.0f)
         {
             cool -= Time.deltaTime;
-            yield return new WaitForFixedUpdate();
+
+            if (pwsk != null)
+                pwsk.SetCurrentCooldown(cool);
+            yield return null;
         }
         isCooldown = false;
     }
