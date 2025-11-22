@@ -2,7 +2,6 @@
 
 using UnityEngine;
 
-
 public class characterMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;        // 캐릭터 이동 속도
