@@ -141,7 +141,7 @@ public class CharacterMovement : MonoBehaviour
             if (!walkSource.isPlaying)
             {
                 walkSource.Play();
-                Debug.Log("겆는 소리 재생");
+                Debug.Log("걷는 소리 재생");
             }
         }
         else
