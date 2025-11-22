@@ -2,11 +2,14 @@
 
 using UnityEngine;
 
-public class characterMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;        // 캐릭터 이동 속도
     public Transform cameraTransform;   // 메인 카메라
     public Vector3 cameraOffset = new Vector3(0, 10, -10); // 카메라와 캐릭터 사이 거리
+
+    public bool isMoving = false;
+    public bool isAttacking = false;
     
     private Animator animator; // 애니메이터
 
@@ -15,7 +18,7 @@ public class characterMovement : MonoBehaviour
         animator = GetComponent<Animator>(); //애니메이터 가져오기
     }
 
-    private void Update()
+    public void Update()
     {
         // 입력값 (WASD)
         float moveX = 0f;
@@ -47,12 +50,13 @@ public class characterMovement : MonoBehaviour
 
         // 2. is_moving 처리
         
-        bool isMoving = (w || a || s || d);
+        isMoving = (w || a || s || d);
         animator.SetBool("is_moving", isMoving);
 
         // 3. is_attacking 처리 (M 키)
-        bool isAttacking = Input.GetKey(KeyCode.M);
+        isAttacking = Input.GetKey(KeyCode.M);
         animator.SetBool("is_attacking", isAttacking);
+        
 
 
 

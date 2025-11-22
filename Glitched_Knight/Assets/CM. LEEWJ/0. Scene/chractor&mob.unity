@@ -240,8 +240,8 @@ GameObject:
   - component: {fileID: 489469000}
   - component: {fileID: 489469004}
   - component: {fileID: 489469003}
-  - component: {fileID: 489469005}
   - component: {fileID: 489469006}
+  - component: {fileID: 489469007}
   m_Layer: 0
   m_Name: Slime_Spiked_Idle_0
   m_TagString: Untagged
@@ -354,10 +354,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2003087778}
-  detectionRadius: 3
+  detectionRadius: 5
   moveSpeed: 3
-  rotationSpeed: 8
   obstacleCheckDistance: 3
+  stopDistance: 1.5
 --- !u!65 &489469004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -379,19 +379,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.19, y: 0.14, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &489469005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 489468999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9236cb6fc3ff614a84b00b1dd21a036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 1
 --- !u!54 &489469006
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -419,6 +406,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &489469007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489468999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91066b6691a8be449e55c18be9b8e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 10
+  currentHP: 10
+  damageToPlayer: 10
 --- !u!1 &683704921
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +434,7 @@ GameObject:
   - component: {fileID: 683704925}
   - component: {fileID: 683704927}
   - component: {fileID: 683704926}
-  - component: {fileID: 683704928}
+  - component: {fileID: 683704929}
   m_Layer: 0
   m_Name: Idle 0
   m_TagString: Untagged
@@ -544,10 +546,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2003087778}
-  detectionRadius: 3
+  detectionRadius: 5
   moveSpeed: 3
-  rotationSpeed: 8
   obstacleCheckDistance: 3
+  stopDistance: 1.5
 --- !u!54 &683704927
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -575,7 +577,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &683704928
+--- !u!114 &683704929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -584,10 +586,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 683704921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9236cb6fc3ff614a84b00b1dd21a036, type: 3}
+  m_Script: {fileID: 11500000, guid: b91066b6691a8be449e55c18be9b8e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  maxHP: 10
+  currentHP: 10
+  damageToPlayer: 10
 --- !u!1 &955379238
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +746,8 @@ MonoBehaviour:
   moveSpeed: 5
   cameraTransform: {fileID: 0}
   cameraOffset: {x: 0, y: 10, z: -10}
+  isMoving: 0
+  isAttacking: 0
 --- !u!114 &955379244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,6 +1136,8 @@ MonoBehaviour:
   moveSpeed: 5
   cameraTransform: {fileID: 0}
   cameraOffset: {x: 0, y: 10, z: -10}
+  isMoving: 0
+  isAttacking: 0
 --- !u!65 &2003087776
 BoxCollider:
   m_ObjectHideFlags: 0
