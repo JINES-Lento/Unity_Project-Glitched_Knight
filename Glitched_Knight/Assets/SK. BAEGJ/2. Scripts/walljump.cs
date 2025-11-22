@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class walljump : MonoBehaviour
@@ -7,10 +8,7 @@ public class walljump : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public bool isCooldown = false;
     public float coolTimer = 3f;
-
-    public float maxMP;
-    public float currentMP; //작동 테스트용 현재 MP
-    public Slider MP;
+    public float useMP = 3; //잠식증가량
 
     public CooldownUI pwsk;
 
@@ -24,9 +22,6 @@ public class walljump : MonoBehaviour
             pwsk.SetMaxCooldown(coolTimer);
             pwsk.SetCurrentCooldown(coolTimer);
         }
-        currentMP = 0;
-        MP.maxValue = maxMP;
-        MP.value = currentMP;
     }
     // Update is called once per frame
     void Update()
@@ -36,7 +31,7 @@ public class walljump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S)) moveDir = Vector3.back;
         if (Input.GetKeyDown(KeyCode.D)) moveDir = Vector3.right; // 방향 저장
 
-        MP.value = currentMP;
+        
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -54,11 +49,10 @@ public class walljump : MonoBehaviour
                         {
                             Debug.Log("스킬발동");
                             transform.position = hit.point + moveDir * 2f; //스킬시전
-                            currentMP += 3; 
+                            GameManager.Instance.currentMP += useMP; 
                         }
                     }
                 }
-                Debug.Log("트리거 없음");
             }
         }
     }
