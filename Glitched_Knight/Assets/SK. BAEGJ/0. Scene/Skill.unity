@@ -516,6 +516,57 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &889037356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 889037358}
+  - component: {fileID: 889037357}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!114 &889037357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889037356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dd6901463d508499cc16c3762292e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  currentHP: 0
+  maxMP: 100
+  currentMP: 0
+  isChargingMP: 0
+  isGameOver: 0
+  mpChargeSpeed: 20
+--- !u!4 &889037358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889037356}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47872797, y: 2.2944672, z: -10.128023}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &897109614
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254aae266aeaa2547917a6630cf9199a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMP: 100
   MP: {fileID: 897109616}
 --- !u!1 &955379238
 GameObject:
@@ -1011,8 +1061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a41878dfbbf2e4aa17766180dfe05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 0
   HP: {fileID: 1214614777}
 --- !u!1 &1298545206
 GameObject:
@@ -1743,3 +1791,4 @@ SceneRoots:
   - {fileID: 1458776805}
   - {fileID: 2115591692}
   - {fileID: 832195001}
+  - {fileID: 889037358}

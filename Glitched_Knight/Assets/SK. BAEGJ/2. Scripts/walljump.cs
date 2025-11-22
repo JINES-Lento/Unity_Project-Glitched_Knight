@@ -31,10 +31,7 @@ public class walljump : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S)) moveDir = Vector3.back;
         if (Input.GetKeyDown(KeyCode.D)) moveDir = Vector3.right; // 방향 저장
 
-        if (MPUI.gameoverMP == true || HPUI.gameoverHP == true)
-        {
-            SceneManager.LoadScene("gameOver");
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -52,7 +49,7 @@ public class walljump : MonoBehaviour
                         {
                             Debug.Log("스킬발동");
                             transform.position = hit.point + moveDir * 2f; //스킬시전
-                            MPUI.currentMP += useMP; 
+                            GameManager.Instance.currentMP += useMP; 
                         }
                     }
                 }

@@ -621,6 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e802d3d23167d48af11503a66c084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamemanager: {fileID: 0}
 --- !u!114 &1405994235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,6 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e802d3d23167d48af11503a66c084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamemanager: {fileID: 0}
 --- !u!114 &2038615790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,7 +999,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2038615789}
         m_TargetAssemblyTypeName: gameMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: ReplayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
