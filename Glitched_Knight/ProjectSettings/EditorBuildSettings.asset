@@ -23,6 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SK. BAEGJ/0. Scene/gameEnd.unity
     guid: c7c4190b3ba550a45aa9b077c387a1a2
+  - enabled: 1
+    path: Assets/L. GOOHW/0. Scene/Level2.unity
+    guid: e563981dbcce0194d845ecd7d3c33fad
+  - enabled: 1
+    path: Assets/L. GOOHW/0. Scene/Level3.unity
+    guid: ceb8f09818c28f343b56b232450fd3d9
+  - enabled: 1
+    path: Assets/L. GOOHW/0. Scene/Level4.unity
+    guid: 5f27cfb5e8df0a6439a85da7b5d46f62
+  - enabled: 1
+    path: Assets/L. GOOHW/0. Scene/Level5.unity
+    guid: 967c13ab919b48641af1fe742c783cc4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
