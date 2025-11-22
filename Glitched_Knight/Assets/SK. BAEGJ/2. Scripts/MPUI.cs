@@ -4,27 +4,20 @@ using UnityEngine.UI;
 public class MPUI : MonoBehaviour 
 {
 
-    public float maxMP;
-    public static float currentMP;
     public Slider MP;
-    public static bool gameoverMP = false;
 
     void Start()
     {
-        currentMP = 0;
-        MP.maxValue = maxMP;
-        MP.value = currentMP;
-        gameoverMP = false;
+        GameManager.Instance.currentMP = 0;
+        MP.maxValue = GameManager.Instance.maxMP;
+        MP.value = GameManager.Instance.currentMP;
+        GameManager.Instance.isGameOver = false;
 
 }
 
     // Update is called once per frame
     void Update()
     {
-        MP.value = currentMP;
-        if (currentMP >= maxMP)
-        {
-            gameoverMP = true;
-        }
+        MP.value = GameManager.Instance.currentMP;
     }
 }
