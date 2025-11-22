@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class gameMenu : MonoBehaviour
@@ -16,7 +17,15 @@ public class gameMenu : MonoBehaviour
 
     public void ReplayGame()
     {
-        SceneManager.LoadScene("Level1"); //마을로 돌아가도록
+        SceneManager.LoadScene("Skill"); //마을로 돌아가도록
+    }
+
+    public void GameOver()
+    {
+        if(MPUI.gameoverMP == true || HPUI.gameoverHP == true)
+        {
+            SceneManager.LoadScene("gameOver");
+        }
     }
 
 }
