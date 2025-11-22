@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SK. BAEGJ/0. Scene/Skill.unity
     guid: b122eb408439ab74d9ef9c7f22220c17
+  - enabled: 1
+    path: Assets/SK. BAEGJ/0. Scene/gameEnd.unity
+    guid: c7c4190b3ba550a45aa9b077c387a1a2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

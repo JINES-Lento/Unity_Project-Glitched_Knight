@@ -20,6 +20,11 @@ public class gameMenu : MonoBehaviour
         SceneManager.LoadScene("Skill"); //마을로 돌아가도록
     }
 
+    public void GoTitle()
+    {
+        SceneManager.LoadScene("title"); 
+    }
+
     /*public void GameOver()
     {
         if(MPUI.gameoverMP == true || HPUI.gameoverHP == true)
