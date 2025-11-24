@@ -22,6 +22,8 @@ public class worp : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "Level2") {SceneManager.LoadScene("Level3");}
         else if (SceneManager.GetActiveScene().name == "Level3") {SceneManager.LoadScene("Level4");}
         else if (SceneManager.GetActiveScene().name == "Level4") {SceneManager.LoadScene("Level5");}
+        else if (SceneManager.GetActiveScene().name == "Level4-2") {SceneManager.LoadScene("Level5");}
+        else if (SceneManager.GetActiveScene().name == "Level5") {SceneManager.LoadScene("gameEnd");}
         else {Debug.Log("예외상황");}
     }
 
@@ -31,7 +33,7 @@ public class worp : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level2") {SceneManager.LoadScene("Level1");}
         else if (SceneManager.GetActiveScene().name == "Level3") {SceneManager.LoadScene("Level2");}
         else if (SceneManager.GetActiveScene().name == "Level4") {SceneManager.LoadScene("Level3");}
-        else if (SceneManager.GetActiveScene().name == "Level5") {SceneManager.LoadScene("Level4");}
+        else if (SceneManager.GetActiveScene().name == "Level5") {SceneManager.LoadScene("Level4-2");}
         else {Debug.Log("예외상황");}
     }
 }
