@@ -8,6 +8,7 @@ public class MusicPlayer : MonoBehaviour
     {
         backgroundMusic.loop = true;
     }
+
     public void PlayMusic()
     {
         if (backgroundMusic != null)
@@ -18,10 +19,5 @@ public class MusicPlayer : MonoBehaviour
         {
             Debug.Log("컴포넌트 음악 할당 안함");
         }
-    }
-
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
     }
 }
