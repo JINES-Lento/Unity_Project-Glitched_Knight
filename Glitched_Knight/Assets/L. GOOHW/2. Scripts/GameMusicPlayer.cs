@@ -12,9 +12,9 @@ public class GameMusicPlayer : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "gameEnd") 
+        if (SceneManager.GetActiveScene().name == "gameOver") 
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
     public void PlayMusic()

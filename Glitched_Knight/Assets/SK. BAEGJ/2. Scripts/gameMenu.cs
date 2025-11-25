@@ -12,12 +12,12 @@ public class gameMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void ReplayGame()
     {
-        SceneManager.LoadScene("Skill"); //마을로 돌아가도록
+        SceneManager.LoadScene("Level1"); //마을로 돌아가도록
     }
 
     public void GoTitle()

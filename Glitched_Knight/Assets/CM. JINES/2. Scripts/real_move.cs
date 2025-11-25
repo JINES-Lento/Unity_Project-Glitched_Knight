@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-public class real_move : MonoBehaviour
+public class Real_move : MonoBehaviour
 {
     [Header("Settings")]
     public float moveSpeed = 5f;        // 캐릭터 이동 속도

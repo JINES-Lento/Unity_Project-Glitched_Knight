@@ -8,7 +8,7 @@ public class Mob : MonoBehaviour
     public int damageToPlayer = 10; // 몹이 플레이어에게 줄 데미지
 
     private GameManager gameManager;
-    private CharacterMovement playerMovement;
+    private Real_move playerMovement;
 
     public AudioClip damagedClip; //피격 소리
     private AudioSource damagedSource; //픽격 오디오 소스
@@ -28,8 +28,17 @@ public class Mob : MonoBehaviour
 
         // CharacterMovement가 있는 플레이어 오브젝트 찾기
         GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-            playerMovement = player.GetComponent<CharacterMovement>();
+        if (player == null)
+        {
+            Debug.LogError("[Mob] Player 태그 오브젝트를 못 찾음");
+        }
+        else
+        {
+            Debug.Log("[Mob] FindWithTag가 찾은 오브젝트: " + player.name);
+            playerMovement = player.GetComponent<Real_move>();
+            if (playerMovement == null)
+                Debug.LogError("[Mob] " + player.name + " 에 real_move 컴포넌트가 없음");
+        }
 
         damagedSource = GetComponent<AudioSource>();
         if (damagedSource == null)
@@ -53,7 +62,7 @@ public class Mob : MonoBehaviour
                 {
                     Debug.Log("▶ 플레이어 공격(연속) → 몹 HP 감소");
                     PlayDamagedSound();
-                    TakeDamage(20);
+                    TakeDamage(34);
 
                    // 다음 공격 시간 설정 (현재 시간 + 0.3초)
                     nextDamageTime = Time.time + damageInterval;

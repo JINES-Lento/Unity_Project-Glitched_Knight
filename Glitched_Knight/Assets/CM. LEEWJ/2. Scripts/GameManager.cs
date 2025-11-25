@@ -40,21 +40,22 @@ public class GameManager : MonoBehaviour
         if (isGameOver) return;
 
         // MP 잠식 중이면 증가
-        if (isChargingMP)
-        {
-            currentMP += mpChargeSpeed * Time.deltaTime;
-            Debug.Log($"현재 MP: {currentMP}");
 
-            if (currentMP >= maxMP)
-            {
-                currentMP = maxMP;
-                GameOver();
-            }
+        if (currentMP >= maxMP)
+        {
+            currentMP = 0;
+            GameOver();
         }
+
 
         if (SceneManager.GetActiveScene().name == "gameEnd")
         {
             Destroy(this.gameObject);
+        }
+        if (SceneManager.GetActiveScene().name == "Level4" ||
+            SceneManager.GetActiveScene().name == "Level4-2")
+        {
+            currentMP = 0;
         }
     }
 
@@ -91,6 +92,6 @@ public class GameManager : MonoBehaviour
         isGameOver = true;
         Debug.Log("GAME OVER!");
 
-        // TODO: UI 표시, 재시작 처리 등
+        SceneManager.LoadScene("gameOver");
     }
 }
