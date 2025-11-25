@@ -6067,6 +6067,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6379229358572731924, guid: 1729e8f52a1c0e44dabde1db0695b4c7, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7345312268420982059, guid: 1729e8f52a1c0e44dabde1db0695b4c7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
