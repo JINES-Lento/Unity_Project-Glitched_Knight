@@ -9,7 +9,8 @@ public class destroy_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "gameEnd")
+        if (SceneManager.GetActiveScene().name == "gameEnd" ||
+            SceneManager.GetActiveScene().name == "gameOver")
         {
             Destroy(this.gameObject);
         }

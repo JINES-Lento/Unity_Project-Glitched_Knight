@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (SceneManager.GetActiveScene().name == "gameEnd")
+        if (SceneManager.GetActiveScene().name == "gameEnd" ||
+            SceneManager.GetActiveScene().name == "gameOver")
         {
             Destroy(this.gameObject);
         }

@@ -12,7 +12,8 @@ public class GameMusicPlayer : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "gameOver") 
+        if (SceneManager.GetActiveScene().name == "gameOver" ||
+            SceneManager.GetActiveScene().name == "gameEnd") 
         {
             Destroy(gameObject);
         }
